@@ -84,6 +84,14 @@ public class Section {
 		return upStation.isSameId(stationId) || downStation.isSameId(stationId);
 	}
 
+	public boolean isSameId(Section section) {
+		return this.id.equals(section.id);
+	}
+
+	public boolean hasId() {
+		return !id.equals(TEMPORARY_ID);
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -137,9 +145,5 @@ public class Section {
 			", downStation=" + downStation +
 			", distance=" + distance +
 			'}';
-	}
-
-	public boolean isSameId(Section section) {
-		return this.id.equals(section.id);
 	}
 }

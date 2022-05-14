@@ -31,15 +31,18 @@ public class SectionsDirtyChecker {
 	}
 
 	public Sections findDeleted(List<Section> sections) {
+		List<Long> ids = sections.stream()
+			.map(Section::getId)
+			.collect(Collectors.toList());
 		List<Section> deletedSections = snapShot.stream()
-			.filter(origin -> !sections.contains(origin))
+			.filter(origin -> !ids.contains(origin.getId()))
 			.collect(Collectors.toList());
 		return new Sections(deletedSections);
 	}
 
 	public Sections findSaved(List<Section> sections) {
 		List<Section> savedSections = sections.stream()
-			.filter(updated -> !snapShot.contains(updated))
+			.filter(updated -> !updated.hasId())
 			.collect(Collectors.toList());
 		return new Sections(savedSections);
 	}
