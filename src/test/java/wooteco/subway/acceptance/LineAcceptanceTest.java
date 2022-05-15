@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+import com.ori.acceptancetest.SpringBootAcceptanceTest;
+
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
@@ -23,7 +25,8 @@ import wooteco.subway.controller.dto.StationRequest;
 import wooteco.subway.controller.dto.StationResponse;
 
 @DisplayName("지하철 노선 관련 인수 테스트")
-public class LineAcceptanceTest extends AcceptanceTest {
+@SpringBootAcceptanceTest
+public class LineAcceptanceTest {
 
 	private LineRequest lineRequest;
 
