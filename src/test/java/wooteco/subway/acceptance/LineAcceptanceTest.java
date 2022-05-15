@@ -86,7 +86,7 @@ public class LineAcceptanceTest extends AcceptanceTest {
 	void createLineNoFoundStation() {
 		// when
 		ExtractableResponse<Response> response = RestAssured.given().log().all()
-			.body(new LineRequest("2호선", "red", 1L, 2L, 10))
+			.body(new LineRequest("2호선", "red", 100L, 101L, 10))
 			.contentType(MediaType.APPLICATION_JSON_VALUE)
 			.when()
 			.post("/lines")
